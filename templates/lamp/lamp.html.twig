@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une Lampe{% endblock %}
+
+{% block main %}
+
+<div class="ajout-lamp">
+    
+    <div class="container">
+       
+         <h1 class="text-center">Ajouter une nouvelle lampe</h1>
+        {# Affichage des messages flash (succès ou erreur) #}
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        {# Formulaire d'ajout de lampe #}
+        <div class="form-container">
+            {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_row(form.name, {'label': 'Nom de la lampe'}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.description, {'label': 'Description'}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.value, {'label': 'Prix (€)'}) }}
+                </div>
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-primary mt-3">Ajouter</button>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

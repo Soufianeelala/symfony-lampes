@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail de la lampe : {{ lamp.name }}{% endblock %}
+
+{% block main %}
+<section class="detail">
+    <h1>Détails de la lampe : {{ lamp.name }}</h1>
+    <div class="detail-container">
+        <div class="detail-image">
+            {% if lamp.imageName %}
+                <img src="{{ asset('uploads/images/' ~ lamp.imageName) }}" alt="{{ lamp.name }}">
+            {% else %}
+                <p>Pas d'image disponible.</p>
+            {% endif %}
+        </div>
+        <div class="detail-info">
+            <h2>{{ lamp.name }}</h2>
+            <p><strong>Valeur estimée :</strong> {{ lamp.value }} €</p>
+            <p><strong>Description :</strong></p>
+            <p>{{ lamp.description }}</p>
+        </div>
+    </div>
+    <a href="{{ path('app_galerie') }}" class="btn back-btn">Retour à la galerie</a>
+</section>
+{% endblock %}

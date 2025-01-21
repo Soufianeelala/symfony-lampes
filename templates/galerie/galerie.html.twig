@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Galerie des Lampes{% endblock %}
+
+{% block main %}
+<section class="galerie">
+    <h1>Galerie des Lampes</h1>
+      {% for lamp in lamps %}
+<a class="lien-detail" href="{{ path('app_detail', { 'id': lamp.id }) }}">
+        {% endfor %}
+
+    <div class="galerie-list">
+        {% for lamp in lamps %}
+            <section class="galerie-item card">
+                <div class="galerie-image">
+                    {% if lamp.imageName %}
+                        <img src="{{ asset('uploads/images/' ~ lamp.imageName) }}" alt="{{ lamp.name }}">
+                    {% else %}
+                        <p>Pas d'image</p>
+                    {% endif %}
+                </div>
+                <div class="galerie-info">
+                    <h2>{{ lamp.name }}</h2>
+                    <p><strong>Description:</strong> {{ lamp.description }}</p>
+                    <p><strong>Prix:</strong> {{ lamp.value }} €</p>
+                    <div class="galerie-actions">
+                        {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+                            <a class="btn update-btn" href="{{ path('app_update_lampe', { 'id': lamp.id }) }}">Modifier</a>
+                            <form method="POST" onsubmit="return confirm('Confirmer la suppression?')" action="{{ path('app_delete_lampe', {'id': lamp.id}) }}">
+                                <input type="hidden" name="_method" value="delete">
+                                <input type="hidden" name="_token" value="{{ csrf_token('Supprimer' ~ lamp.id) }}">
+                                <input class="btn delete-btn" type="submit" value="Supprimer">
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
+        {% else %}
+            <div class="no-galerie">
+                <p>Aucune lampe trouvée dans la galerie.</p>
+            </div>
+        {% endfor %}
+    </div>
+    
+</section>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block main %}
+<section class="inscription">
+    <div class="form-inscription">
+        <h1>Créer un compte</h1>
+        {# Affiche les messages flash #}
+        {% for message in app.flashes('success') %}
+            <div class="alert">{{ message }}</div>
+        {% endfor %}
+
+        {# Début du formulaire d'inscription #}
+        {{ form_start(registrationForm) }}
+
+            <div class="form-inscription">
+                {{ form_label(registrationForm.username, 'Nom d’utilisateur') }}
+                {{ form_widget(registrationForm.username, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(registrationForm.username) }}
+            </div>
+
+            <div class="form-inscription">
+                {{ form_label(registrationForm.email, 'Adresse email') }}
+                {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(registrationForm.email) }}
+            </div>
+
+            <div class="form-inscription">
+                {{ form_label(registrationForm.Password.first, 'Mot de passe') }}
+                {{ form_widget(registrationForm.Password.first, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(registrationForm.Password.first) }}
+            </div>
+
+            <div class="form-inscription">
+                {{ form_label(registrationForm.Password.second, 'Confirmer le mot de passe') }}
+                {{ form_widget(registrationForm.Password.second, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(registrationForm.Password.second) }}
+            </div>
+
+            <button type="submit" class="btn btn-inscription">S’inscrire</button>
+        {{ form_end(registrationForm) }}
+    </div>
+</section>
+{% endblock %}

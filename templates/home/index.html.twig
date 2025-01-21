@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des lampes{% endblock %}
+
+{% block main %}
+    <section class="slider"></section>
+    <section class="slogan">
+        <h2>"Illuminez votre passion, collectionnez l'exceptionnel !"</h2>
+        <p> "Bienvenue sur LampCollections, la plateforme idéale pour les passionnés de lampes uniques et historiques. Explorez des trésors, partagez vos découvertes, et rejoignez une communauté qui éclaire
+        le monde avec ses collections."</p>
+    </section>
+
+    <section class="nouveauté">
+        <h1>Nouveautés</h1>
+
+   <div class="lamp-list">
+    {% for lamp in lamps %}
+        <section class="lamp-item">
+            <div class="lamp-image">
+                {% if lamp.imageName %}
+                    <img src="{{ asset('uploads/images/' ~ lamp.imageName) }}" alt="{{ lamp.name }}">
+                {% else %}
+                    <p>Pas d'image</p>
+                {% endif %}
+            </div>
+            <div class="lamp-info">
+                <h2>{{ lamp.name }}</h2>
+                <p><strong>Description:</strong> {{ lamp.description }}</p>
+                <p><strong>Prix:</strong> {{ lamp.value }} €</p>
+                <div class="lamp-actions">
+                    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+                        <a class="btn update-btn" href="{{ path('app_update_lampe', { 'id': lamp.id }) }}">Modifier</a>
+                        <form method="POST" onsubmit="return confirm('Confirmer la suppression?')" action="{{ path('app_delete_lampe', {'id': lamp.id}) }}">
+                            <input type="hidden" name="_method" value="delete">
+                            <input type="hidden" name="_token" value="{{ csrf_token('Supprimer' ~ lamp.id) }}">
+                            <input class="btn delete-btn" type="submit" value="Supprimer">
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+    {% else %}
+        <div class="no-lamps">
+            <p>Aucune lampe trouvée.</p>
+        </div>
+    {% endfor %}
+</div>
+
+
+
+
+    </section>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends '@EasyAdmin/page/content.html.twig'%}
+{% block content %}
+    <h1>Bienvenue sur le tableau de bord</h1>
+    <p>Ceci est une page personnalisée pour le tableau de bord administrateur.</p>
+
+    <div class="dashboard-links">
+        <ul>
+            <li><a href="{{ path('admin') }}">Retour au menu principal</a></li>
+            <li><a href="{{ path('app_login') }}">Retour au site</a></li>
+        </ul>
+    </div>
+{% endblock %}

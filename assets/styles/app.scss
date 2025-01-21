@@ -1,0 +1,737 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none ;
+}
+body {
+    background-color: #f7e5c2;
+}
+ //--------partie header-----------------
+header{
+display: flex;
+justify-content:flex-end;}
+   
+
+nav{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-items: center;
+    justify-content:space-between;
+
+    
+}
+
+ul{
+    display: flex;
+    justify-content:flex-end;
+
+
+    
+}
+li{
+    padding: 20px;
+
+}
+a{
+    color:#ffffff ;
+    font-size: larger;
+
+}
+.logo{
+   
+    background-image: url('../img/logo-lumiere.png');
+    width:80px;
+    height: 83px;
+    background-size: cover;
+    margin-left: 50px;
+    border-radius: 50px ;
+}
+// --------main acceuil--------------------------------
+.slider {
+    position: relative;
+    background-image: url('../img/slider.jpg');
+    width: 100%;
+    height: 663px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.slider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   // background-color: rgba(255, 255, 255, 0.3); /* Plus la valeur est grande, plus l'image sera claire */
+    z-index: 1;
+}
+
+.slider-content {
+    position: relative;
+    z-index: 2; /* Pour que le contenu soit au-dessus de l'overlay */
+}
+.slogan {
+    background-color: black;
+    color: #ffffff;
+    border-radius: 50%; /* Cercle parfait */
+    width: 500px; /* Assurez une largeur suffisante */
+    height: 500px; /* Assurez une hauteur suffisante */
+    display: flex; /* Active Flexbox */
+    flex-direction: column; /* Aligne le contenu verticalement */
+    justify-content: center; /* Centre verticalement le contenu */
+    align-items: center; /* Centre horizontalement le contenu */
+    text-align: center; /* Centre le texte multiligne */
+    margin: auto; /* Centre le cercle dans son conteneur */
+    padding: 20px; /* Ajoute un espace interne pour éviter que le texte touche les bords */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Ajoute une ombre pour l'esthétique */
+    font-family: Arial, sans-serif; /* Police propre et lisible */
+    margin-top: 30px;
+}
+
+.slogan h2 {
+    margin: 0 0 10px; /* Ajoute un espace entre le titre et le paragraphe */
+    font-size: 20px; /* Ajustez selon la taille souhaitée */
+}
+
+.slogan p {
+    margin: 0; /* Retire les marges par défaut pour un meilleur contrôle */
+    font-size: 16px; /* Taille de texte adaptée au contenu */
+    line-height: 1.4; /* Espace entre les lignes pour plus de lisibilité */
+}
+
+//------------ partie nouveauté--------------------------------------------------------
+h1{
+    background-color:#AEACA8 ;
+    border-radius: 20px;
+    text-align: center;
+    width: 20%;
+    margin: auto;
+    margin-top: 25px;
+    padding: 10px;
+}
+.lamp-list {
+    min-height: 100vh; /* S'étend sur toute la hauteur de la page */
+    justify-content: center; /* Centrer verticalement les cartes */
+}
+
+/* Conteneur principal des lampes */
+/* Conteneur principal */
+.lamp-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrer horizontalement les cartes */
+    gap: 30px; /* Espacement entre les cartes */
+    padding: 30px;
+    
+}
+
+/* Chaque carte de lampe */
+.lamp-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 80%; /* Les cartes occupent 80% de la largeur de la page */
+    max-width: 1200px; /* Limiter la largeur maximale des cartes */
+    background-color: #f9f9f9; /* Couleur de fond douce */
+    border: 1px solid #ddd;
+    border-radius: 12px; /* Coins arrondis */
+    padding: 20px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Image de la lampe */
+.lamp-image img {
+    width: 400px; /* Agrandir les images */
+    height: 400px; /* Conserver les proportions */
+    border-radius: 10px;
+}
+
+/* Informations de la lampe */
+.lamp-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrer verticalement le contenu */
+    flex: 1; /* Occuper tout l'espace disponible */
+}
+
+.lamp-info h2 {
+    font-size: 24px; /* Texte plus grand */
+    margin-left: 0px;
+    color: #333;
+}
+
+.lamp-info p {
+    margin: 10px 0;
+    font-size: 16px; /* Texte plus lisible */
+    color: #555;
+}
+
+.lamp-info p strong {
+    font-size: 20px; /* Prix mis en avant */
+    color: #000;
+}
+.lamp-info a{
+color: #000;
+background-color: greenyellow;
+}
+/* <!--//////////////////////////////////// parti footer //////////////////////////////////////////--> */
+  /* <!--//////////////////////////////////// parti footer1 //////////////////////////////////////////--> */
+  footer {
+    background-color: #000; /* Fond noir élégant */
+    color: #fff;
+    padding: 20px 15px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    max-height: 300px; /* Limite la hauteur totale */
+    overflow-y: auto; /* Défilement si le contenu dépasse */
+    box-sizing: border-box;
+}
+
+footer .footer1, footer .footer2, footer .footer3 {
+    margin-bottom: 20px;
+}
+
+footer .footer1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+
+footer .footer1 .logo {
+    width: 80px;
+    height: 80px;
+    background-image: url('../img/logo-lumiere.png') no-repeat center center;
+    background-size: contain;
+}
+
+footer .footer1 .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+footer .footer1 .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+footer .footer1 .nav-links li a:hover {
+    color:#AEACA8;
+}
+
+footer .footer2 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+footer .footer2 #youremail {
+    flex: 1;
+}
+
+footer .footer2 #youremail h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+footer .footer2 #youremail input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+}
+
+footer .footer2 .follow {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+footer .footer2 .follow h4 {
+    font-size: 16px;
+}
+
+footer .footer2 .follow li a {
+    font-size: 20px;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+footer .footer2 .follow li a:hover {
+    color:#AEACA8;}
+
+footer .footer3 {
+    border-top: 1px solid #444;
+    padding-top: 10px;
+}
+
+footer .footer3 p {
+    font-size: 12px;
+    color: #aaa;
+    margin: 0;
+}
+
+   
+
+// LA PAGE -------AJOUTER--------- UNE LAMPE --------------
+.ajout-lamp {
+    display: flex; /* Active le mode Flexbox */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    min-height: 100vh; /* Prend toute la hauteur de l'écran */
+    background-color: #f7e5c2; /* Fond gris personnalisé */
+    padding: 20px; /* Pour éviter que le formulaire touche les bords sur des petits écrans */
+}
+
+.ajout-lamp h1 {
+    width: 110%;
+    margin: auto;
+    color: #333;
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-align: center; /* Centre le titre */
+}
+
+.form-container {
+    background-color: #fff; /* Fond blanc */
+    padding: 30px;
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    width: 100%;
+    max-width: 500px; /* Largeur maximale */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-container label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #555;
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+    border-color: #AEACA8;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+.form-footer {
+    text-align: center; /* Centre le bouton */
+}
+
+.form-footer button {
+    padding: 10px 20px;
+    background-color: #AEACA8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-footer button:hover {
+    background-color: #AEACA8;
+}
+//---------------------page galerie-----------------------
+/* Container pour la galerie */
+.galerie {
+    padding: 20px;
+    text-align: center;
+}
+.galerie h1 {
+    margin-bottom: 50px;
+    text-align: center;
+}
+.galerie a{
+    color:#000
+}
+
+
+.galerie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Création de cartes responsives */
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Style pour chaque élément de lampe (carte) */
+.galerie-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover pour les cartes */
+.galerie-item:hover {
+    transform: translateY(-10px); /* Légère remontée de la carte */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
+}
+
+/* Style pour l'image */
+.galerie-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+/* Style pour les informations de la lampe */
+.galerie-info {
+    padding: 20px;
+    text-align: left;
+}
+
+.galerie-info h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.galerie-info p {
+    font-size: 1em;
+    margin-bottom: 8px;
+}
+
+/* Style pour les actions sous forme de boutons */
+.galerie-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.update-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #e53935;
+}
+
+.update-btn:hover {
+    background-color: #45a049;
+}
+
+/* Pour les cas où aucune lampe n'est trouvée */
+.no-galerie {
+    font-size: 1.2em;
+    color: #555;
+}
+// ------------------------page contact administrateure ----------------------------
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+    width: 50%;
+    margin: auto;
+    height: 140px;
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Form Labels */
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* Form Inputs */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Input Focus */
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Textarea */
+.form-control[rows] {
+    resize: none; /* Prevent resizing */
+}
+
+/* Submit Button */
+.btn-contact{
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 15%;
+    margin: auto;
+    margin-bottom: 20px;
+
+}
+
+.btn-contact:hover {
+    background-color: #AEACA8;
+}
+
+/* Form Errors */
+.form-errors {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+}
+/////////------------page detail----------------------------------------------------------/// 
+.detail {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.detail-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    gap: 50px;
+    font-size: 30px;
+    border: #AEACA8 solid 5px ;
+    margin-top: 20px;
+
+}
+
+.detail-image img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.detail-info {
+    flex: 1;
+}
+
+.detail-info h2 {
+    color: #000000;
+    color: #ffffff;
+   
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #d8d9c2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.back-btn:hover {
+    background-color: #000000;
+}
+
+///page--------------------- LOGIN
+.login {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+
+.form-login {
+width: 100%;
+max-width: 400px;
+background: #ffffff;
+padding: 20px 30px;
+border-radius: 8px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+text-align: center;
+}
+
+.login h1 {
+font-size: 24px;
+color: #000000;
+margin-bottom: 20px;
+width: 200px;
+}
+
+.form-group {
+margin-bottom: 15px;
+text-align: left;
+}
+
+label {
+font-weight: bold;
+font-size: 14px;
+margin-bottom: 5px;
+display: block;
+color: #000000;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+width: 100%;
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 5px;
+font-size: 14px;
+color: #000000;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+border-color: #000000;
+outline: none;
+box-shadow: 0 0 4px rgba(76, 76, 77, 0.3);
+}
+
+button.btn {
+width: 100%;
+padding: 10px;
+background-color: #000000;
+color: #fff;
+font-size: 16px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+button.btn:hover {
+background-color: #AEACA8;
+}
+
+.alert {
+background-color: #f8d7da;
+color: #721c24;
+border: 1px solid #f5c6cb;
+padding: 10px;
+border-radius: 5px;
+margin-bottom: 15px;
+text-align: center;
+}
+///page--------------------- inscription--------------------------
+.inscription {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-inscription {
+    width: 70%;
+    margin: auto;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    width: 260px;
+}
+
+.form-inscription .form-control {
+    width: 80%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-inscription .form-control:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+button.btn-inscription {
+    width: 30%;
+    padding: 10px;
+    background-color: #000000;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-inscription:hover {
+    background-color: #393939;
+}
+
+.alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
