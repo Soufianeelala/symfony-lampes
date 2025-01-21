@@ -5,10 +5,10 @@
 {% block main %}
 <section class="galerie">
     <h1>Galerie des Lampes</h1>
+            <div class="galerie-list">
     {% for lamp in lamps %}
         <a class="lien-detail" href="{{ path('app_detail', { 'id': lamp.id }) }}">
 
-            <div class="galerie-list">
                     <section class="galerie-item card">
                         <div class="galerie-image">
                             {% if lamp.imageName %}
@@ -37,9 +37,9 @@
             <div class="no-galerie">
             <p>Aucune lampe trouvée dans la galerie.</p>
             </div>
-            </div>
         </a>
     {% endfor %}
+            </div>
   
 </section>
 {% endblock %}

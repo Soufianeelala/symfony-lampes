@@ -369,8 +369,11 @@ footer .footer3 p {
 
 
 .galerie-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Création de cartes responsives */
+    display: flex;
+    flex-wrap: wrap;
+    
+    //flex-direction: column;
+    // grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Création de cartes responsives */
     gap: 20px;
     justify-content: center;
 }
@@ -393,7 +396,7 @@ footer .footer3 p {
 /* Style pour l'image */
 .galerie-image img {
     width: 100%;
-    height: 350px;
+    height: 400px;
     object-fit: cover;
 }
 
@@ -401,6 +404,9 @@ footer .footer3 p {
 .galerie-info {
     padding: 20px;
     text-align: left;
+}
+.galerie-item {
+    width: 400px;
 }
 
 .galerie-info h2 {
@@ -426,6 +432,7 @@ footer .footer3 p {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-top: 15px;
 }
 
 .update-btn {
@@ -781,12 +788,12 @@ button.btn {
 }
 
 button.btn-primary {
-    background-color: #007bff;
+    background-color: #000000;
     color: #fff;
 }
 
 button.btn-primary:hover {
-    background-color: #0056b3;
+    background-color: #6c757d;
 }
 
 button.btn-secondary {
