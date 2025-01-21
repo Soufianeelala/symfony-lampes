@@ -20,7 +20,8 @@
 
           <nav>
             <div class="logo">
-                {# <img src="../img/logo-lumiere.png" alt="logo"> #}
+                {# //<a href="{{ path('app_Home') }}"><img src="/logo-lumiere.png" alt="logo"></a> #}
+               
             </div>
 
             <ul>
@@ -29,8 +30,10 @@
                 <li><a class="{% if app.request.get('_route') == 'app_lamp' %}active{% endif %}" href="{{ path('app_lamp') }}">Créer des Lampes</a></li>
                 {% endif %}
                 <li><a class="{% if app.request.get('_route') == 'app_galerie' %}active{% endif %}" href="{{ path('app_galerie') }}">Galerie de produit </a></li>
-                <li><a class="{% if app.request.get('_route') == 'app_login' %}active{% endif %}" href="{{ path('app_login') }}">Login</a></li>
+                {% if not (is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')) %}
+                <li><a class="{% if app.request.get('_route') == 'app_login' %}active{% endif %}" href="{{ path('app_login') }}">Login</a></li>              
                 <li><a class="{% if app.request.get('_route') == 'app_inscription' %}active{% endif %}" href="{{ path('app_inscription') }}">s'inscrire</a></li>
+                {% endif %}
                 {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
                 <li><a class="{% if app.request.get('_route') == 'app_logout' %}active{% endif %}" href="{{ path('app_logout') }}">Logout</a></li>
                 {% endif %}

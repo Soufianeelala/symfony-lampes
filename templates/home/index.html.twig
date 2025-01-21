@@ -28,8 +28,7 @@
                 <p><strong>Description:</strong> {{ lamp.description }}</p>
                 <p><strong>Prix:</strong> {{ lamp.value }} €</p>
                 <div class="lamp-actions">
-                    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
-                        <a class="btn update-btn" href="{{ path('app_update_lampe', { 'id': lamp.id }) }}">Modifier</a>
+                    {% if (is_granted('ROLE_ADMIN') or  ( lamp.user == app.user)) %}                            <a class="btn update-btn" href="{{ path('app_update_lampe', { 'id': lamp.id }) }}">Modifier</a>
                         <form method="POST" onsubmit="return confirm('Confirmer la suppression?')" action="{{ path('app_delete_lampe', {'id': lamp.id}) }}">
                             <input type="hidden" name="_method" value="delete">
                             <input type="hidden" name="_token" value="{{ csrf_token('Supprimer' ~ lamp.id) }}">

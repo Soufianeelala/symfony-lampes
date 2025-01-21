@@ -8,20 +8,21 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 
 final class LampController extends AbstractController
 {
     // Route pour afficher la liste des lampes
     #[Route('/lamp', name: 'app_lamp')]
-    public function lamp(Request $request, EntityManagerInterface $entityManager): Response
+    public function lamp(Request $request, EntityManagerInterface $entityManager ,Security $security): Response
     {
         
         // 2. Création d'une nouvelle instance de l'entité Lamp pour ajouter une lampe
         $lamp = new Lamp();
         $form = $this->createForm(FormLampType::class, $lamp);
         // Récupération des 4 dernières lampes par la date de création
-$lamps = $entityManager->getRepository(Lamp::class)
-->findBy([], ['creates_at' => 'DESC'], 4); // Trie par date de création, descendante, limite à 4 résultats
+        $lamps = $entityManager->getRepository(Lamp::class)
+        ->findBy([], ['creates_at' => 'DESC'], 4); // Trie par date de création, descendante, limite à 4 résultats
 
 
 
@@ -32,7 +33,10 @@ $lamps = $entityManager->getRepository(Lamp::class)
         if ($form->isSubmitted() && $form->isValid()) {
             // Définir la date de création à la date actuelle
             $lamp->setCreatesAt(new \DateTimeImmutable());  // Assurez-vous que le champ 'creates_at' est correctement renseigné
-        
+           
+            $user=$security->getUser();
+            $lamp->setUser($user);
+
             // Persister l'entité lampe
             $entityManager->persist($lamp);
         

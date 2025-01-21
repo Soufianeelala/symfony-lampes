@@ -19,6 +19,23 @@ nav{
     justify-items: center;
     justify-content:space-between;   
 }
+//* Effet hover sur les liens */
+nav ul li a:hover {
+  color: #fff;
+  background-color: #000000; /* Couleur d'accentuation */
+  padding: 10px;
+}
+/* Style actif pour le lien de la page en cours */
+nav ul li a.active {
+    color: #000000;
+    border-radius: 20%;
+    background-color: #f7e5c2; /* Couleur d'accentuation */
+    padding: 20px;
+    padding-bottom: 45px;
+
+
+  }
+
 
 ul{
     display: flex;
@@ -40,7 +57,7 @@ a{
     height: 83px;
     background-size: cover;
     margin-left: 50px;
-    border-radius: 50px ;
+    border-radius: 40%;
 }
 // --------main acceuil--------------------------------
 .slider {
@@ -68,23 +85,84 @@ a{
     position: relative;
     z-index: 2; /* Pour que le contenu soit au-dessus de l'overlay */
 }
+// .slogan {
+//     background-color: black; /* Couleur de fond initiale */
+//     color: #ffffff; /* Couleur du texte */
+//     border-radius: 40%; /* Cercle parfait */
+//     width: 600px; /* Largeur du cercle */
+//     height: 500px; /* Hauteur du cercle */
+//     display: flex; /* Active Flexbox */
+//     flex-direction: column; /* Aligne le contenu verticalement */
+//     justify-content: center; /* Centre verticalement le contenu */
+//     align-items: center; /* Centre horizontalement le contenu */
+//     text-align: center; /* Centre le texte multiligne */
+//     margin: auto; /* Centre le cercle dans son conteneur */
+//     padding: 20px; /* Espace interne */
+//     font-family: Arial, sans-serif; /* Police lisible */
+//     margin-top: 30px;
+
+//     /* Ombres lumineuses */
+//     box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.6), 
+//                 0px 0px 30px rgba(255, 255, 255, 0.4), 
+//                 0px 0px 50px rgba(255, 255, 255, 0.3);
+
+//     /* Ajout d'un dégradé radial pour l'effet lumineux */
+//     background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 1) 70%);
+    
+//     /* Animation pour un effet de pulsation */
+//     animation: pulse 2s infinite ease-in-out;
+// }
+
+// /* Animation pour l'effet d'éclairage pulsé */
+// @keyframes pulse {
+//     0%, 100% {
+//         box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.6), 
+//                     0px 0px 30px rgba(255, 255, 255, 0.4), 
+//                     0px 0px 50px rgba(255, 255, 255, 0.3);
+//     }
+//     50% {
+//         box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.8), 
+//                     0px 0px 50px rgba(255, 255, 255, 0.6), 
+//                     0px 0px 80px rgba(255, 255, 255, 0.5);
+//     }
+// }
 .slogan {
-    background-color: black;
-    color: #ffffff;
-    border-radius: 50%; /* Cercle parfait */
-    width: 500px; /* Assurez une largeur suffisante */
-    height: 500px; /* Assurez une hauteur suffisante */
+    background-color: black; /* Couleur de fond initiale */
+    color: #ffffff; /* Couleur du texte */
+    border-radius: 40%; /* Cercle parfait */
+    width: 500px; /* Largeur du cercle */
+    height: 500px; /* Hauteur du cercle */
     display: flex; /* Active Flexbox */
     flex-direction: column; /* Aligne le contenu verticalement */
     justify-content: center; /* Centre verticalement le contenu */
     align-items: center; /* Centre horizontalement le contenu */
     text-align: center; /* Centre le texte multiligne */
     margin: auto; /* Centre le cercle dans son conteneur */
-    padding: 20px; /* Ajoute un espace interne pour éviter que le texte touche les bords */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Ajoute une ombre pour l'esthétique */
-    font-family: Arial, sans-serif; /* Police propre et lisible */
+    padding: 20px; /* Espace interne */
+    font-family: Arial, sans-serif; /* Police lisible */
     margin-top: 30px;
+
+    /* Ombres par défaut (sans effet lumineux) */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+    /* Dégradé discret par défaut */
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 1) 70%);
+
+    /* Transition pour rendre l'effet fluide au survol */
+    transition: all 0.4s ease-in-out;
 }
+
+/* Effet lumineux au survol */
+.slogan:hover {
+    /* Ombres lumineuses */
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.6), 
+                0px 0px 30px rgba(255, 255, 255, 0.4), 
+                0px 0px 50px rgba(255, 255, 255, 0.3);
+
+    /* Dégradé radial lumineux */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 1) 70%);
+}
+
 
 .slogan h2 {
     margin: 0 0 10px; /* Ajoute un espace entre le titre et le paragraphe */
@@ -282,77 +360,114 @@ footer .footer3 p {
    
 
 // LA PAGE -------AJOUTER--------- UNE LAMPE --------------
-.ajout-lamp {
-    display: flex; /* Active le mode Flexbox */
-    justify-content: center; /* Centre horizontalement */
-    align-items: center; /* Centre verticalement */
-    min-height: 100vh; /* Prend toute la hauteur de l'écran */
-    background-color: #f7e5c2; /* Fond gris personnalisé */
-    padding: 20px; /* Pour éviter que le formulaire touche les bords sur des petits écrans */
+/* Conteneur principal pour centrer verticalement et horizontalement */
+.ajout-lampe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    background-color: #f7e5c2; /* Fond doux et chaleureux */
+    padding: 20px;
 }
 
-.ajout-lamp h1 {
-    width: 110%;
-    margin: auto;
-    color: #333;
-    font-size: 30px;
-    margin-bottom: 30px;
-    text-align: center; /* Centre le titre */
-}
-
-.form-container {
-    background-color: #fff; /* Fond blanc */
+/* Carte contenant le formulaire */
+.ajout-lampe-card {
+    background-color: #ffffff;
     padding: 30px;
-    border-radius: 8px; /* Coins arrondis */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    max-width: 400px; /* Largeur maximale de la carte */
     width: 100%;
-    max-width: 500px; /* Largeur maximale */
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
-.form-group {
-    margin-bottom: 15px;
+/* Animation pour une entrée fluide */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.form-container label {
+/* Titre du formulaire */
+.ajout-lampe-title {
+    font-size: 24px;
+    color: #333333;
+    margin-bottom: 20px;
     font-weight: bold;
-    margin-bottom: 5px;
-    display: inline-block;
-    color: #555;
 }
 
-.form-container input,
-.form-container textarea {
-    width: 100%;
+/* Messages Flash */
+.alert {
     padding: 10px;
-    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    border: 1px solid transparent;
     border-radius: 4px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+/* Style du formulaire */
+.ajout-lampe-form .form-group-ajout {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Labels des champs */
+.ajout-lampe-form label {
+    font-weight: bold;
+    color: #000000;
+    display: block;
+    margin-bottom: 5px;
     font-size: 14px;
 }
 
-.form-container input:focus,
-.form-container textarea:focus {
-    border-color: #AEACA8;
-    box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+/* Champs de saisie */
+.ajout-lampe-form .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    color: #000000;
+}
+
+/* Focus sur les champs */
+.ajout-lampe-form .form-control:focus {
+    border-color: #aeaca8;
+    box-shadow: 0 0 5px rgba(174, 172, 168, 0.5);
     outline: none;
 }
 
-.form-footer {
-    text-align: center; /* Centre le bouton */
-}
-
-.form-footer button {
+/* Bouton de soumission */
+.btn-ajout {
+   
+    background-color: #aeaca8;
+    color: white;
     padding: 10px 20px;
-    background-color: #AEACA8;
-    color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
-.form-footer button:hover {
-    background-color: #AEACA8;
+.btn-ajout:hover {
+    background-color: #928f8b;
 }
+
 //---------------------page galerie-----------------------
 /* Container pour la galerie */
 .galerie {
@@ -389,7 +504,7 @@ footer .footer3 p {
 
 /* Hover pour les cartes */
 .galerie-item:hover {
-    transform: translateY(-10px); /* Légère remontée de la carte */
+    transform: translateY(-15px); /* Légère remontée de la carte */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
 }
 
@@ -583,6 +698,106 @@ footer .footer3 p {
 .back-btn:hover {
     background-color: #000000;
 }
+/* Section des commentaires */
+.comments {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comments h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    border-bottom: 2px solid #AEACA8;
+    padding-bottom: 10px;
+}
+
+.comment-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.comment {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #AEACA8;
+}
+
+.comment p {
+    margin: 5px 0;
+    line-height: 1.6;
+}
+
+.comment strong {
+    color: #555;
+    font-size: 16px;
+}
+
+.comment-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    resize: none;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.comment-form textarea:focus {
+    outline: none;
+    border-color: #AEACA8;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn_comment {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.btn_comment:hover {
+    background-color: #AEACA8;
+    color: #ffffff;
+}
+
+.back-btn_comment {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #d8d9c2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn_comment:hover {
+    background-color: #000000;
+}
+
 
 ///page--------------------- LOGIN
 .login {

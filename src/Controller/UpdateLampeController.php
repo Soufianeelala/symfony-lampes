@@ -7,40 +7,47 @@ use App\Form\FormLampType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 final class UpdateLampeController extends AbstractController
 {
-    #[Route('/update/lampe/{id}', name: 'app_update_lampe' )]
+    #[Route('/update/lampe/{id}', name: 'app_update_lampe')]
     public function index(Lamp $lamp, Request $request, EntityManagerInterface $entityManager): Response
     {
+        // Récupération de l'utilisateur connecté
+        $user = $this->getUser();
 
-         // 2. Création d'un formulaire basé sur l'entité Lamp et lié à $lamp
-         $form = $this->createForm(FormLampType::class, $lamp);
+        // Vérifie si l'utilisateur connecté est le créateur de la lampe ou un administrateur
+        if ($lamp->getUser() !== $user && !$this->isGranted('ROLE_ADMIN')) {
+            // Ajout d'un message d'alerte pour l'utilisateur
+            $this->addFlash('alert', "Vous n'êtes pas autorisé à modifier cette lampe.");
 
-         // 3. Traitement des données soumises via la requête HTTP (POST)
-         $form->handleRequest($request);
- 
-         // 4. Vérification si le formulaire a été soumis et validé (tous les champs remplis correctement)
-         if ($form->isSubmitted() && $form->isValid()) {
-             // a. Persiste l'objet $lamp (prépare l'entité pour la sauvegarde en base de données)
-             $entityManager->persist($lamp);
- 
-             // b. Exécute la sauvegarde (insère ou met à jour l'entité dans la base de données)
-             $entityManager->flush();
- 
-             // c. Ajoute un message flash pour informer l'utilisateur du succès de l'opération
-             $this->addFlash('success', 'Lampe Modifier avec succès');
- 
-             // d. Redirige l'utilisateur vers une autre page définie par la route "app_Home"
-             return $this->redirectToRoute('app_Home');
-         }
+            // Redirection vers la page d'accueil ou une autre page
+            return $this->redirectToRoute('app_Home');
+        }
 
+        // Création du formulaire lié à la lampe
+        $form = $this->createForm(FormLampType::class, $lamp);
+        $form->handleRequest($request);
+
+        // Si le formulaire est soumis et valide
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Sauvegarde de la lampe
+            $entityManager->persist($lamp);
+            $entityManager->flush();
+
+            // Message de succès
+            $this->addFlash('success', 'Lampe modifiée avec succès.');
+
+            // Redirection après la modification
+            return $this->redirectToRoute('app_Home');
+        }
+
+        // Rendu du formulaire
         return $this->render('update_lampe/update.html.twig', [
             'lampeform' => $form->createView(),
-            'lamp' => $lamp,  
-
+            'lamp' => $lamp,
         ]);
     }
 }

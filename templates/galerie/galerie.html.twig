@@ -19,10 +19,15 @@
                         </div>
                         <div class="galerie-info">
                             <h2>{{ lamp.name }}</h2>
-                            <p><strong>Description:</strong> {{ lamp.description }}</p>
+                            <p><strong>Description:</strong> 
+                                {{ lamp.description|slice(0, 30) }}{% if lamp.description|length > 30 %}... 
+                                <a href="{{ path('app_detail', {'id': lamp.id}) }}">Lire plus</a>
+                                 {% endif %}
+                            </p>
                             <p><strong>Prix:</strong> {{ lamp.value }} €</p>
                             <div class="galerie-actions">
-                                {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+                                {% if (is_granted('ROLE_ADMIN') or  ( lamp.user == app.user)) %}
+
                                     <a class="btn update-btn" href="{{ path('app_update_lampe', { 'id': lamp.id }) }}">Modifier</a>
                                     <form method="POST" onsubmit="return confirm('Confirmer la suppression?')" action="{{ path('app_delete_lampe', {'id': lamp.id}) }}">
                                         <input type="hidden" name="_method" value="delete">

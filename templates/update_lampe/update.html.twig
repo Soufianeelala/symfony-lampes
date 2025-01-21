@@ -57,11 +57,11 @@
                 {{ form_errors(lampeform.imageFile) }}
             </div>
 
-            <div class="form-updatelamp">
+            {# <div class="form-updatelamp">
                 {{ form_label(lampeform.creates_at, 'Date de création') }}
                 {{ form_widget(lampeform.creates_at, {'attr': {'class': 'form-control'}}) }}
                 {{ form_errors(lampeform.creates_at) }}
-            </div>
+            </div> #}
 
             <button type="submit" class="btn btn-primary">Enregistrer</button>
             <a href="{{ path('app_Home') }}" class="btn btn-secondary">Annuler</a>
