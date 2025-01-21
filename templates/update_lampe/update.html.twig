@@ -19,50 +19,52 @@
 
     {# Affiche le formulaire #}
     {{ form_start(lampeform) }}
-        <div class="form-group">
-            {{ form_label(lampeform.name, 'Nom') }}
-            {{ form_widget(lampeform.name, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(lampeform.name) }}
-        </div>
+        <section class="updatelamp">
+            <div class="form-updatelamp">
+                {{ form_label(lampeform.name, 'Nom') }}
+                {{ form_widget(lampeform.name, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(lampeform.name) }}
+            </div>
 
-        <div class="form-group">
-            {{ form_label(lampeform.description, 'Description') }}
-            {{ form_widget(lampeform.description, {'attr': {'class': 'form-control', 'rows': '5'}}) }}
-            {{ form_errors(lampeform.description) }}
-        </div>
+            <div class="form-updatelamp">
+                {{ form_label(lampeform.description, 'Description') }}
+                {{ form_widget(lampeform.description, {'attr': {'class': 'form-control', 'rows': '5'}}) }}
+                {{ form_errors(lampeform.description) }}
+            </div>
 
-        <div class="form-group">
-            {{ form_label(lampeform.value, 'Valeur (€)') }}
-            {{ form_widget(lampeform.value, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(lampeform.value) }}
-        </div>
+            <div class="form-updatelamp">
+                {{ form_label(lampeform.value, 'Valeur (€)') }}
+                {{ form_widget(lampeform.value, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(lampeform.value) }}
+            </div>
 
-        <div class="form-group">
-            {{ form_label(lampeform.imageFile, 'Image (JPEG, PNG, GIF)') }}
-            
-            {# Afficher l'image actuelle si elle existe #}
-            {% if lamp.imageName %}
-                <div class="current-image">
-                    <p>Image actuelle :</p>
-                    <img src="{{ asset('uploads/images/' ~ lamp.imageName) }}" alt="Image de la lampe" width="150">
-                    <br>
-                    <label for="delete_image">Supprimer l'image ?</label>
-                    <input type="checkbox" id="delete_image" name="delete_image">
-                </div>
-            {% endif %}
-            
-            {# Afficher le champ de téléchargement d'image #}
-            {{ form_widget(lampeform.imageFile, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(lampeform.imageFile) }}
-        </div>
+            <div class="form-updatelamp">
+                {{ form_label(lampeform.imageFile, 'Image (JPEG, PNG, GIF)') }}
+                
+                {# Afficher l'image actuelle si elle existe #}
+                {% if lamp.imageName %}
+                    <div class="current-image">
+                        <p>Image actuelle :</p>
+                        <img src="{{ asset('uploads/images/' ~ lamp.imageName) }}" alt="Image de la lampe" width="150">
+                        <br>
+                        <label for="delete_image">Supprimer l'image ?</label>
+                        <input type="checkbox" id="delete_image" name="delete_image">
+                    </div>
+                {% endif %}
+                
+                {# Afficher le champ de téléchargement d'image #}
+                {{ form_widget(lampeform.imageFile, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(lampeform.imageFile) }}
+            </div>
 
-        <div class="form-group">
-            {{ form_label(lampeform.creates_at, 'Date de création') }}
-            {{ form_widget(lampeform.creates_at, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(lampeform.creates_at) }}
-        </div>
+            <div class="form-updatelamp">
+                {{ form_label(lampeform.creates_at, 'Date de création') }}
+                {{ form_widget(lampeform.creates_at, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(lampeform.creates_at) }}
+            </div>
 
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
-        <a href="{{ path('app_Home') }}" class="btn btn-secondary">Annuler</a>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <a href="{{ path('app_Home') }}" class="btn btn-secondary">Annuler</a>
+        </section>
     {{ form_end(lampeform) }}
 {% endblock %}

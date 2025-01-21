@@ -17,17 +17,12 @@ nav{
     background-color: rgb(0, 0, 0);
     display: flex;
     justify-items: center;
-    justify-content:space-between;
-
-    
+    justify-content:space-between;   
 }
 
 ul{
     display: flex;
-    justify-content:flex-end;
-
-
-    
+    justify-content:flex-end;    
 }
 li{
     padding: 20px;
@@ -55,7 +50,7 @@ a{
     height: 663px;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    //background-attachment: fixed;
 }
 
 .slider::before {
@@ -136,7 +131,7 @@ h1{
     width: 80%; /* Les cartes occupent 80% de la largeur de la page */
     max-width: 1200px; /* Limiter la largeur maximale des cartes */
     background-color: #f9f9f9; /* Couleur de fond douce */
-    border: 1px solid #ddd;
+    border: 15px solid  #ffffff;
     border-radius: 12px; /* Coins arrondis */
     padding: 20px;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
@@ -153,8 +148,11 @@ h1{
 .lamp-info {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centrer verticalement le contenu */
-    flex: 1; /* Occuper tout l'espace disponible */
+    justify-content:center; /* Centrer verticalement le contenu */
+    flex: 1; /* Occuper tout l'espace disponible */ 
+    border: 15px solid  #F9F6F0;
+    border-radius: 10px;
+
 }
 
 .lamp-info h2 {
@@ -734,4 +732,123 @@ button.btn-inscription:hover {
     border-radius: 5px;
     margin-bottom: 15px;
     text-align: center;
+}
+///PAGE -------------UPDATE-----------------------------------------------------------
+/// /* Section principale du formulaire */
+.updatelamp {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.form-updatelamp {
+    margin-bottom: 15px;
+}
+
+.form-updatelamp label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #5a5a5a;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+/* Boutons */
+button.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+button.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+button.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+button.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+button.btn:active {
+    transform: scale(0.98);
+}
+
+a.btn-secondary {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background-color: #6c757d;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+a.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Messages flash */
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Image actuelle */
+.current-image {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.current-image img {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.current-image p {
+    margin-bottom: 5px;
+    font-style: italic;
 }
