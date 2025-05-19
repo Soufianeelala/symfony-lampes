@@ -1,0 +1,71 @@
+//@use"../abstract/variable";
+
+
+*{
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   text-decoration: none ;
+}
+
+
+body {
+   background-color: #f7e5c2;
+}
+h1{
+   background-color:#AEACA8 ;
+   border-radius: 20px;
+   text-align: center;
+   width: 30%;
+   margin: auto;
+   margin-top: 25px;
+   padding: 10px;
+   font-size: 44px;
+}
+
+/* Boutons */
+button.btn {
+   display: inline-block;
+   padding: 10px 20px;
+   border: none;
+   border-radius: 5px;
+   font-size: 16px;
+   cursor: pointer;
+   transition: background-color 0.3s, transform 0.2s;
+}
+
+button.btn-primary {
+   background-color: #000000;
+   color: #fff;
+}
+
+button.btn-primary:hover {
+   background-color: #6c757d;
+}
+
+button.btn-secondary {
+   background-color: #6c757d;
+   color: #fff;
+}
+
+button.btn-secondary:hover {
+   background-color: #5a6268;
+}
+
+button.btn:active {
+   transform: scale(0.98);
+}
+
+a.btn-secondary {
+   display: inline-block;
+   text-decoration: none;
+   color: #fff;
+   background-color: #6c757d;
+   padding: 10px 20px;
+   border-radius: 5px;
+   transition: background-color 0.3s, transform 0.2s;
+}
+
+a.btn-secondary:hover {
+   background-color: #5a6268;
+}

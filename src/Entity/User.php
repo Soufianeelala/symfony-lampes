@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Entity;
 
 use App\Repository\UserRepository;
@@ -35,9 +36,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Lamp::class, mappedBy: 'user')]
     private Collection $lamps;
 
+    #[ORM\Column(type: 'string', nullable: true)]
+    private ?string $resetToken = null;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private ?\DateTimeInterface $resetTokenExpiresAt = null;
+
+    /**
+     * @var Collection<int, comment>
+     */
+    #[ORM\OneToMany(targetEntity: comment::class, mappedBy: 'user')]
+    private Collection $userComment;
+
+    /**
+     * @var Collection<int, Note>
+     */
+    #[ORM\OneToMany(targetEntity: Note::class, mappedBy: 'user')]
+    private Collection $NoteUser;
+
+
+   
     public function __construct()
     {
         $this->lamps = new ArrayCollection();
+        $this->userComment = new ArrayCollection();
+        $this->NoteUser = new ArrayCollection();
+       
+       
     }
 
     public function getId(): ?int
@@ -135,4 +160,126 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    // /**
+    //  * @return Collection<int, Note>
+    //  */
+    // public function getNotes(): Collection
+    // {
+    //     return $this->notes;
+    // }
+
+    // public function addNote(Note $note): static
+    // {
+    //     if (!$this->notes->contains($note)) {
+    //         $this->notes->add($note);
+    //         $note->setUser($this);
+    //     }
+
+    //     return $this;
+    // }
+
+    // public function removeNote(Note $note): static
+    // {
+    //     if ($this->notes->removeElement($note)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($note->getUser() === $this) {
+    //             $note->setUser(null);
+    //         }
+    //     }
+
+    //     return $this;
+    // }
+
+    public function getResetToken(): ?string
+    {
+        return $this->resetToken;
+    }
+
+    public function setResetToken(?string $resetToken): self
+    {
+        $this->resetToken = $resetToken;
+
+        return $this;
+    }
+
+    public function getResetTokenExpiresAt(): ?\DateTimeInterface
+    {
+        return $this->resetTokenExpiresAt;
+    }
+
+    public function setResetTokenExpiresAt(?\DateTimeInterface $resetTokenExpiresAt): self
+    {
+        $this->resetTokenExpiresAt = $resetTokenExpiresAt;
+
+        return $this;
+    }
+
+    public function isResetTokenValid(): bool
+    {
+        return $this->resetTokenExpiresAt > new \DateTime();
+    }
+
+    /**
+     * @return Collection<int, comment>
+     */
+    public function getUserComment(): Collection
+    {
+        return $this->userComment;
+    }
+
+    public function addUserComment(comment $userComment): static
+    {
+        if (!$this->userComment->contains($userComment)) {
+            $this->userComment->add($userComment);
+            $userComment->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserComment(comment $userComment): static
+    {
+        if ($this->userComment->removeElement($userComment)) {
+            // set the owning side to null (unless already changed)
+            if ($userComment->getUser() === $this) {
+                $userComment->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Note>
+     */
+    public function getNoteUser(): Collection
+    {
+        return $this->NoteUser;
+    }
+
+    public function addNoteUser(Note $noteUser): static
+    {
+        if (!$this->NoteUser->contains($noteUser)) {
+            $this->NoteUser->add($noteUser);
+            $noteUser->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNoteUser(Note $noteUser): static
+    {
+        if ($this->NoteUser->removeElement($noteUser)) {
+            // set the owning side to null (unless already changed)
+            if ($noteUser->getUser() === $this) {
+                $noteUser->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+   
 }
+

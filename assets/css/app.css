@@ -1,3 +1,1092 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
 
+body {
+  background-color: #f7e5c2;
+}
+
+h1 {
+  background-color: #AEACA8;
+  border-radius: 20px;
+  text-align: center;
+  width: 30%;
+  margin: auto;
+  margin-top: 25px;
+  padding: 10px;
+  font-size: 44px;
+}
+
+/* Boutons */
+button.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button.btn-primary {
+  background-color: #000000;
+  color: #fff;
+}
+
+button.btn-primary:hover {
+  background-color: #6c757d;
+}
+
+button.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+button.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+button.btn:active {
+  transform: scale(0.98);
+}
+
+a.btn-secondary {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background-color: #6c757d;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+a.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.filter {
+  width: 50%;
+  background: rgb(0, 0, 0); /* Couleur de base */
+  background: linear-gradient(0deg, #000000 0%, #AEACA8 0%, #f7e5c2 100%);
+  margin: auto;
+  height: auto;
+  padding: 10px 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.filter a {
+  margin-left: 10px;
+  font-family: "calibri";
+  font-size: 22px;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: linear-gradient(145deg, #AB9B8B, #574529);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.filter a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+.filter a:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav {
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  justify-items: center;
+  justify-content: space-between;
+}
+
+nav ul li a:hover {
+  color: #fff;
+  background-color: #000000; /* Couleur d'accentuation */
+  padding: 10px;
+}
+
+/* Style actif pour le lien de la page en cours */
+nav ul li a.active {
+  color: #000000;
+  border-radius: 20%;
+  background-color: #f7e5c2; /* Couleur d'accentuation */
+  padding: 20px;
+  padding-bottom: 45px;
+}
+
+ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+li {
+  padding: 20px;
+}
+
+a {
+  color: #ffffff;
+  font-size: larger;
+}
+
+.logo {
+  background-image: url("../img/logo-lumiere.png");
+  width: 80px;
+  height: 83px;
+  background-size: cover;
+  margin-left: 50px;
+  border-radius: 40%;
+}
+
+.slider {
+  position: relative;
+  background-image: url("../img/slider.jpg");
+  width: 100%;
+  height: 663px;
+  background-size: cover;
+  background-position: center;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.slider-content {
+  position: relative;
+  z-index: 2; /* Pour que le contenu soit au-dessus de l'overlay */
+}
+
+.slogan {
+  background-color: black; /* Couleur de fond initiale */
+  color: #ffffff; /* Couleur du texte */
+  border-radius: 40%; /* Cercle parfait */
+  width: 500px; /* Largeur du cercle */
+  height: 500px; /* Hauteur du cercle */
+  display: flex; /* Active Flexbox */
+  flex-direction: column; /* Aligne le contenu verticalement */
+  justify-content: center; /* Centre verticalement le contenu */
+  align-items: center; /* Centre horizontalement le contenu */
+  text-align: center; /* Centre le texte multiligne */
+  margin: auto; /* Centre le cercle dans son conteneur */
+  padding: 20px; /* Espace interne */
+  font-family: Arial, sans-serif; /* Police lisible */
+  margin-top: 30px;
+  /* Ombres par défaut (sans effet lumineux) */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  /* Dégradé discret par défaut */
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.8) 0%, rgb(0, 0, 0) 70%);
+  /* Transition pour rendre l'effet fluide au survol */
+  transition: all 0.4s ease-in-out;
+}
+
+/* Effet lumineux au survol */
+.slogan:hover {
+  /* Ombres lumineuses */
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.6), 0px 0px 30px rgba(255, 255, 255, 0.4), 0px 0px 50px rgba(255, 255, 255, 0.3);
+  /* Dégradé radial lumineux */
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgb(0, 0, 0) 70%);
+}
+
+.slogan h2 {
+  margin: 0 0 10px; /* Ajoute un espace entre le titre et le paragraphe */
+  font-size: 20px; /* Ajustez selon la taille souhaitée */
+}
+
+.slogan p {
+  margin: 0; /* Retire les marges par défaut pour un meilleur contrôle */
+  font-size: 16px; /* Taille de texte adaptée au contenu */
+  line-height: 1.4; /* Espace entre les lignes pour plus de lisibilité */
+}
+
+.lamp-list {
+  min-height: 100vh; /* S'étend sur toute la hauteur de la page */
+  justify-content: center; /* Centrer verticalement les cartes */
+}
+
+/* Conteneur principal des lampes */
+/* Conteneur principal */
+.lamp-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer horizontalement les cartes */
+  gap: 30px; /* Espacement entre les cartes */
+  padding: 30px;
+}
+
+/* Chaque carte de lampe */
+.lamp-item {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  width: 80%; /* Les cartes occupent 80% de la largeur de la page */
+  max-width: 1200px; /* Limiter la largeur maximale des cartes */
+  background-color: #f9f9f9; /* Couleur de fond douce */
+  border: 15px solid #ffffff;
+  border-radius: 12px; /* Coins arrondis */
+  padding: 20px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Image de la lampe */
+.lamp-image img {
+  width: 400px; /* Agrandir les images */
+  height: 400px; /* Conserver les proportions */
+  border-radius: 10px;
+}
+
+/* Informations de la lampe */
+.lamp-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrer verticalement le contenu */
+  flex: 1; /* Occuper tout l'espace disponible */
+  border: 15px solid #F9F6F0;
+  border-radius: 10px;
+}
+
+.lamp-info h2 {
+  font-size: 24px; /* Texte plus grand */
+  margin-left: 0px;
+  color: #333;
+}
+
+.lamp-info p {
+  margin: 10px 0;
+  font-size: 16px; /* Texte plus lisible */
+  color: #555;
+}
+
+.lamp-info p strong {
+  font-size: 20px; /* Prix mis en avant */
+  color: #000;
+}
+
+.lamp-info a {
+  color: #000;
+  background-color: greenyellow;
+}
+
+/* Conteneur principal pour centrer verticalement et horizontalement */
+.ajout-lampe-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Prend toute la hauteur de la fenêtre */
+  background-color: #f7e5c2; /* Fond doux et chaleureux */
+  padding: 20px;
+}
+
+/* Carte contenant le formulaire */
+.ajout-lampe-card {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  max-width: 400px; /* Largeur maximale de la carte */
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animation pour une entrée fluide */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Titre du formulaire */
+.ajout-lampe-title {
+  font-size: 24px;
+  color: #333333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Messages Flash */
+.alert {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+/* Style du formulaire */
+.ajout-lampe-form .form-group-ajout {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Labels des champs */
+.ajout-lampe-form label {
+  font-weight: bold;
+  color: #000000;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+/* Champs de saisie */
+.ajout-lampe-form .form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  color: #000000;
+}
+
+/* Focus sur les champs */
+.ajout-lampe-form .form-control:focus {
+  border-color: #aeaca8;
+  box-shadow: 0 0 5px rgba(174, 172, 168, 0.5);
+  outline: none;
+}
+
+/* Bouton de soumission */
+.btn-ajout {
+  background-color: #aeaca8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-ajout:hover {
+  background-color: #928f8b;
+}
+
+/* Container pour la galerie */
+.galerie {
+  padding: 20px;
+  text-align: center;
+}
+
+.galerie h1 {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.galerie a {
+  color: #000;
+}
+
+.galerie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Style pour chaque élément de lampe (carte) */
+.galerie-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover pour les cartes */
+.galerie-item:hover {
+  transform: translateY(-15px); /* Légère remontée de la carte */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
+}
+
+/* Style pour l'image */
+.galerie-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* Style pour les informations de la lampe */
+.galerie-info {
+  padding: 20px;
+  text-align: left;
+}
+
+.galerie-item {
+  width: 400px;
+}
+
+.galerie-info h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.galerie-info p {
+  font-size: 1em;
+  margin-bottom: 8px;
+}
+
+/* Style pour les actions sous forme de boutons */
+.galerie-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.update-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #e53935;
+}
+
+.update-btn:hover {
+  background-color: #45a049;
+}
+
+/* Pour les cas où aucune lampe n'est trouvée */
+.no-galerie {
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 20px;
+  width: 50%;
+  margin: auto;
+  height: 140px;
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Form Labels */
+.form-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+/* Form Inputs */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Input Focus */
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+/* Textarea */
+.form-control[rows] {
+  resize: none; /* Prevent resizing */
+}
+
+/* Submit Button */
+.btn-contact {
+  display: block;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  width: 15%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.btn-contact:hover {
+  background-color: #AEACA8;
+}
+
+/* Form Errors */
+.form-errors {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.detail {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  gap: 50px;
+  font-size: 30px;
+  border: #AEACA8 solid 5px;
+  margin-top: 20px;
+}
+
+.detail-image img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.detail-info {
+  flex: 1;
+}
+
+.detail-info h2 {
+  color: #000000;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #d8d9c2;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.back-btn:hover {
+  background-color: #000000;
+}
+
+/* Section des commentaires */
+.comments {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comments h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+  border-bottom: 2px solid #AEACA8;
+  padding-bottom: 10px;
+}
+
+.comment-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.comment {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid #AEACA8;
+}
+
+.comment p {
+  margin: 5px 0;
+  line-height: 1.6;
+}
+
+.comment strong {
+  color: #555;
+  font-size: 16px;
+}
+
+.comment-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.comment-form textarea:focus {
+  outline: none;
+  border-color: #AEACA8;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn_comment {
+  background-color: #000000;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+}
+
+.btn_comment:hover {
+  background-color: #AEACA8;
+  color: #ffffff;
+}
+
+.back-btn_comment {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #d8d9c2;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn_comment:hover {
+  background-color: #000000;
+}
+
+.login {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-login {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login h1 {
+  font-size: 24px;
+  color: #000000;
+  margin-bottom: 20px;
+  width: 200px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: block;
+  color: #000000;
+}
+
+input[type=text],
+input[type=email],
+input[type=password] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #000000;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus {
+  border-color: #000000;
+  outline: none;
+  box-shadow: 0 0 4px rgba(76, 76, 77, 0.3);
+}
+
+button.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #000000;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.btn:hover {
+  background-color: #AEACA8;
+}
+
+.alert {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.inscription {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-inscription {
+  width: 70%;
+  margin: auto;
+  max-width: 600px;
+  background: #ffffff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.form-inscription .form-control {
+  width: 80%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+.form-inscription .form-control:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+button.btn-inscription {
+  width: 30%;
+  padding: 10px;
+  background-color: #000000;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.btn-inscription:hover {
+  background-color: #393939;
+}
+
+.alert {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.updatelamp {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.form-updatelamp {
+  margin-bottom: 15px;
+}
+
+.form-updatelamp label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #5a5a5a;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+/* Boutons */
+button.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button.btn-primary {
+  background-color: #000000;
+  color: #fff;
+}
+
+button.btn-primary:hover {
+  background-color: #6c757d;
+}
+
+button.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+button.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+button.btn:active {
+  transform: scale(0.98);
+}
+
+a.btn-secondary {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background-color: #6c757d;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+a.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Messages flash */
+.alert {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Image actuelle */
+.current-image {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.current-image img {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.current-image p {
+  margin-bottom: 5px;
+  font-style: italic;
+}
+
+/* <!--//////////////////////////////////// parti footer1 //////////////////////////////////////////--> */
+footer {
+  background-color: #000; /* Fond noir élégant */
+  color: #fff;
+  padding: 20px 15px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  max-height: 300px; /* Limite la hauteur totale */
+  overflow-y: auto; /* Défilement si le contenu dépasse */
+  box-sizing: border-box;
+}
+
+footer .footer1, footer .footer2, footer .footer3 {
+  margin-bottom: 20px;
+}
+
+footer .footer1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+}
+
+footer .footer1 .logo {
+  width: 80px;
+  height: 80px;
+  background-image: url("../img/logo-lumiere.png") no-repeat center center;
+  background-size: contain;
+}
+
+footer .footer1 .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+footer .footer1 .nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+footer .footer1 .nav-links li a:hover {
+  color: #AEACA8;
+}
+
+footer .footer2 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+footer .footer2 #youremail {
+  flex: 1;
+}
+
+footer .footer2 #youremail h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+footer .footer2 #youremail input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+}
+
+footer .footer2 .follow {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+footer .footer2 .follow h4 {
+  font-size: 16px;
+}
+
+footer .footer2 .follow li a {
+  font-size: 20px;
+  color: #ffffff;
+  transition: color 0.3s;
+}
+
+footer .footer2 .follow li a:hover {
+  color: #AEACA8;
+}
+
+footer .footer3 {
+  border-top: 1px solid #444;
+  padding-top: 10px;
+}
+
+footer .footer3 p {
+  font-size: 12px;
+  color: #aaa;
+  margin: 0;
+}
 
 /*# sourceMappingURL=app.css.map */

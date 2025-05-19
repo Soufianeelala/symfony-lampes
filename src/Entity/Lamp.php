@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace App\Entity;
 
@@ -13,7 +13,6 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 #[ORM\Entity(repositoryClass: LampRepository::class)]
 class Lamp
 {
-    // Définition de la clé primaire
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
@@ -33,26 +32,58 @@ class Lamp
 
     #[ORM\Column(type: 'float')]
     private ?float $value = null;
+    public function getValue(): ?float
+{
+    return $this->value;
+}
+
+public function setValue(float $value): static
+{
+    $this->value = $value;
+    return $this;
+}
 
     #[ORM\Column(type: 'text')]
     private ?string $description = null;
-
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+    
     #[ORM\Column(type: 'datetime_immutable')]
-    private ?\DateTimeImmutable $creates_at = null;
+    private ?\DateTimeImmutable $createdAt = null;
 
-    /**
-     * @var Collection<int, Comment>
-     */
-    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'lamp')]
-    private Collection $lamp_id;
+    // #[ORM\OneToMany(mappedBy: 'lamp', targetEntity: Comment::class, cascade: ['persist', 'remove'])]
+    // private Collection $comments;
 
     #[ORM\ManyToOne(inversedBy: 'lamps')]
     private ?User $user = null;
 
+    /**
+     * @var Collection<int, comment>
+     */
+    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'lamp')]
+    private Collection $lampComment;
+
+    /**
+     * @var Collection<int, Note>
+     */
+    #[ORM\OneToMany(targetEntity: Note::class, mappedBy: 'lamp')]
+    private Collection $LampNote;
+
     public function __construct()
     {
-        $this->lamp_id = new ArrayCollection();
+        $this->lampComment = new ArrayCollection();
+        $this->LampNote = new ArrayCollection();
     }
+
+   
+
+    // public function __construct()
+    // {
+    //     $this->comments = new ArrayCollection();
+    
+    // }
 
     public function getId(): ?int
     {
@@ -88,71 +119,6 @@ class Lamp
         return $this->imageName;
     }
 
-    public function setImageName(?string $imageName): void
-    {
-        $this->imageName = $imageName;
-    }
-
-    public function getValue(): ?float
-    {
-        return $this->value;
-    }
-
-    public function setValue(float $value): static
-    {
-        $this->value = $value;
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(string $description): static
-    {
-        $this->description = $description;
-        return $this;
-    }
-
-    public function getCreatesAt(): ?\DateTimeImmutable
-    {
-        return $this->creates_at;
-    }
-
-    public function setCreatesAt(\DateTimeImmutable $creates_at): static
-    {
-        $this->creates_at = $creates_at;
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Comment>
-     */
-    public function getLampId(): Collection
-    {
-        return $this->lamp_id;
-    }
-
-    public function addLampId(Comment $lampId): static
-    {
-        if (!$this->lamp_id->contains($lampId)) {
-            $this->lamp_id->add($lampId);
-            $lampId->setLamp($this);
-        }
-        return $this;
-    }
-
-    public function removeLampId(Comment $lampId): static
-    {
-        if ($this->lamp_id->removeElement($lampId)) {
-            if ($lampId->getLamp() === $this) {
-                $lampId->setLamp(null);
-            }
-        }
-        return $this;
-    }
-
     public function getUser(): ?User
     {
         return $this->user;
@@ -161,7 +127,121 @@ class Lamp
     public function setUser(?User $user): static
     {
         $this->user = $user;
+        return $this;
+    }
+
+    // public function getComments(): Collection
+    // {
+    //     return $this->comments;
+    // }
+
+    // public function addComment(Comment $comment): static
+    // {
+    //     if (!$this->comments->contains($comment)) {
+    //         $this->comments->add($comment);
+    //         $comment->setLamp($this);
+    //     }
+
+    //     return $this;
+    // }
+
+    // public function removeComment(Comment $comment): static
+    // {
+    //     if ($this->comments->removeElement($comment)) {
+    //         if ($comment->getLamp() === $this) {
+    //             $comment->setLamp(null);
+    //         }
+    //     }
+
+    //     return $this;
+    // }
+
+    // public function getNotes(): Collection
+    // {
+    //     return $this->notes;
+    // }
+
+    // public function addNote(Note $note): static
+    // {
+    //     if (!$this->notes->contains($note)) {
+    //         $this->notes->add($note);
+    //         $note->setLamp($this);
+    //     }
+
+    //     return $this;
+    // }
+
+    // public function removeNote(Note $note): static
+    // {
+    //     if ($this->notes->removeElement($note)) {
+    //         if ($note->getLamp() === $this) {
+    //             $note->setLamp(null);
+    //         }
+    //     }
+
+    //     return $this;
+    // }
+
+    /**
+     * @return Collection<int, comment>
+     */
+    public function getLampComment(): Collection
+    {
+        return $this->lampComment;
+    }
+
+    public function addLampComment(Comment $lampComment): static
+    {
+        if (!$this->lampComment->contains($lampComment)) {
+            $this->lampComment->add($lampComment);
+            $lampComment->setLamp($this);
+        }
 
         return $this;
     }
+
+    public function removeLampComment(Comment $lampComment): static
+    {
+        if ($this->lampComment->removeElement($lampComment)) {
+            // set the owning side to null (unless already changed)
+            if ($lampComment->getLamp() === $this) {
+                $lampComment->setLamp(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Note>
+     */
+    public function getLampNote(): Collection
+    {
+        return $this->LampNote;
+    }
+
+    public function addLampNote(Note $lampNote): static
+    {
+        if (!$this->LampNote->contains($lampNote)) {
+            $this->LampNote->add($lampNote);
+            $lampNote->setLamp($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLampNote(Note $lampNote): static
+    {
+        if ($this->LampNote->removeElement($lampNote)) {
+            // set the owning side to null (unless already changed)
+            if ($lampNote->getLamp() === $this) {
+                $lampNote->setLamp(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+   
 }

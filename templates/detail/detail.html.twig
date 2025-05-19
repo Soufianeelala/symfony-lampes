@@ -23,27 +23,58 @@
 
     <hr>
 
-    <section class="comments">
-    <h2>Commentaires</h2>
-    <div class="comment-list">
-        {% for comment in comments %}
-            <div class="comment">
-                <p><strong>{{ comment.user.username }}</strong></p> {# Affiche le nom d'utilisateur, pas l'ID #}
-                <p>{{ comment.content }}</p>
-            </div>
+    <section class="rating">
+        {# <h2>Note de la lampe</h2>
+        <div class="stars">
+            {% for i in 1..5 %}
+                {% if i <= averageNote %}
+                    <span class="star filled">★</span>
+                {% else %}
+                    <span class="star">★</span>
+                {% endif %}
+            {% endfor %}
+            <p>Moyenne des notes : {{ averageNote is not null ? averageNote|number_format(1) : 'Aucune note' }}</p>
+        </div> #}
+        
+        {# Formulaire de notation #}
+        {% if app.user %}
+            <h2>Notez cette lampe</h2>
+                <div class="stars">
+                    {% for i in 1..5 %}
+                        <input type="radio" id="star{{ i }}" name="rating" value="{{ i }}" {% if i == 5 %}checked{% endif %} />
+                        <label for="star{{ i }}">★</label>
+                    {% endfor %}
+                </div>
+                
+                <button type="submit" class="btn_rate">Soumettre</button>
+            </form>
         {% else %}
-            <p>Aucun commentaire pour cette lampe. Soyez le premier à en ajouter !</p>
-        {% endfor %}
-    </div>
-    
-    {# Formulaire d'ajout de commentaire #}
-    <h3>Ajouter un commentaire</h3>
-    {{ form_start(commentForm, { 'attr': { 'class': 'comment-form' } }) }}
-        {{ form_widget(commentForm) }}
-        <button type="submit" class="btn_comment">poster</button>
-    {{ form_end(commentForm) }}
-</section>
+            <p>Vous devez être connecté pour noter cette lampe.</p>
+        {% endif %}
+    </section>
 
+    <hr>
+
+    <section class="comments">
+        <h2>Commentaires</h2>
+        <div class="comment-list">
+            {% for comment in comments %}
+                <div class="comment">
+                    <p><strong>{{ comment.user.username }}</strong></p> {# Affiche le nom d'utilisateur, pas l'ID #}
+                    <p>{{ comment.content }}</p>
+                </div>
+            {% else %}
+                <p>Aucun commentaire pour cette lampe. Soyez le premier à en ajouter !</p>
+            {% endfor %}
+        </div>
+        
+        {# Formulaire d'ajout de commentaire #}
+        <h3>Ajouter un commentaire</h3>
+        {{ form_start(commentForm, { 'attr': { 'class': 'comment-form' } }) }}
+            {{ form_widget(commentForm) }}
+            <button type="submit" class="btn_comment">Poster</button>
+        {{ form_end(commentForm) }}
+    </section>
 
     <a href="{{ path('app_galerie') }}" class="btn back-btn_comment">Retour à la galerie</a>
 </section>

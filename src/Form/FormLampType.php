@@ -15,13 +15,12 @@ class FormLampType extends AbstractType
     {
         $builder
             ->add('name')
-            // Champ pour l'image
             ->add('imageFile', FileType::class, [
-                'required' => false,   // Le champ n'est pas obligatoire
-                'mapped' => true,     // Le champ 'imageFile' n'est pas mappé dans la base de données
+                'required' => false,   
+                'mapped' => true,     
                 'constraints' => [
                     new File([
-                        'maxSize' => '2M',  // Taille maximale du fichier
+                        'maxSize' => '5M',  
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png',

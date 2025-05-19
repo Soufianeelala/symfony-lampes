@@ -1,0 +1,43 @@
+
+@use 'mixins' as m;
+
+
+.filter{
+    width: 50%;
+    background: rgb(0, 0, 0); /* Couleur de base */
+    background: linear-gradient(0deg, #000000 0%, #AEACA8 0%, #f7e5c2 100%);
+    margin: auto;
+    height: auto;
+    padding: 10px 1rem;
+    @include m.flex();
+
+
+    a{
+        margin-left:10px;
+        font-family:"calibri";
+        font-size: 22px;
+        font-weight: 900;
+        text-transform: uppercase;
+
+        background: linear-gradient(145deg, #AB9B8B, #574529); 
+        color: white; 
+        border: none; 
+        border-radius: 5px; 
+        padding: 10px 20px; 
+        cursor: pointer; 
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+        transition: transform 0.2s ease, box-shadow 0.2s ease; 
+
+        &:hover {
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); 
+        }
+        
+        &:active {
+            transform: translateY(2px); 
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); 
+        }
+    }
+
+    
+}

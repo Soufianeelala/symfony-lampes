@@ -20,9 +20,7 @@ final class UpdateLampeController extends AbstractController
 
         // Vérifie si l'utilisateur connecté est le créateur de la lampe ou un administrateur
         if ($lamp->getUser() !== $user && !$this->isGranted('ROLE_ADMIN')) {
-            // Ajout d'un message d'alerte pour l'utilisateur
-            $this->addFlash('alert', "Vous n'êtes pas autorisé à modifier cette lampe.");
-
+           
             // Redirection vers la page d'accueil ou une autre page
             return $this->redirectToRoute('app_Home');
         }

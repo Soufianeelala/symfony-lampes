@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20250115131706 extends AbstractMigration
+final class Version20250129091451 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,11 +20,9 @@ final class Version20250115131706 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE comment ADD user_id INT DEFAULT NULL, ADD lamp_id INT DEFAULT NULL');
+        $this->addSql('CREATE TABLE comment (id INT AUTO_INCREMENT NOT NULL, user_id INT DEFAULT NULL, lamp_id INT DEFAULT NULL, content LONGTEXT NOT NULL, INDEX IDX_9474526CA76ED395 (user_id), INDEX IDX_9474526C814F2A52 (lamp_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE comment ADD CONSTRAINT FK_9474526CA76ED395 FOREIGN KEY (user_id) REFERENCES user (id)');
         $this->addSql('ALTER TABLE comment ADD CONSTRAINT FK_9474526C814F2A52 FOREIGN KEY (lamp_id) REFERENCES lamp (id)');
-        $this->addSql('CREATE INDEX IDX_9474526CA76ED395 ON comment (user_id)');
-        $this->addSql('CREATE INDEX IDX_9474526C814F2A52 ON comment (lamp_id)');
     }
 
     public function down(Schema $schema): void
@@ -32,8 +30,6 @@ final class Version20250115131706 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE comment DROP FOREIGN KEY FK_9474526CA76ED395');
         $this->addSql('ALTER TABLE comment DROP FOREIGN KEY FK_9474526C814F2A52');
-        $this->addSql('DROP INDEX IDX_9474526CA76ED395 ON comment');
-        $this->addSql('DROP INDEX IDX_9474526C814F2A52 ON comment');
-        $this->addSql('ALTER TABLE comment DROP user_id, DROP lamp_id');
+        $this->addSql('DROP TABLE comment');
     }
 }

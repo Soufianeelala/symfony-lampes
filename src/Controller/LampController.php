@@ -32,8 +32,8 @@ final class LampController extends AbstractController
         // 4. Vérification si le formulaire a été soumis et validé
         if ($form->isSubmitted() && $form->isValid()) {
             // Définir la date de création à la date actuelle
-            $lamp->setCreatesAt(new \DateTimeImmutable());  // Assurez-vous que le champ 'creates_at' est correctement renseigné
-           
+            $lamp->setCreatesAt(new \DateTimeImmutable());  // A 'creates_at' 
+           // 
             $user=$security->getUser();
             $lamp->setUser($user);
 

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CommentRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
@@ -13,17 +14,27 @@ class Comment
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $created_at = null;
-
-    #[ORM\ManyToOne(inversedBy: 'user_id')]
+    #[ORM\ManyToOne(inversedBy: 'userComment')]
     private ?User $user = null;
 
-    #[ORM\ManyToOne(inversedBy: 'lamp_id')]
+    #[ORM\ManyToOne(inversedBy: 'lampComment')]
     private ?Lamp $lamp = null;
+
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)] // Ajout du champ createdAt
+    private ?\DateTimeImmutable $createdAt = null;
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    {
+        $this->createdAt = $createdAt;
+        return $this;
+    }
 
     public function getId(): ?int
     {
@@ -38,18 +49,6 @@ class Comment
     public function setContent(string $content): static
     {
         $this->content = $content;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->created_at;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $created_at): static
-    {
-        $this->created_at = $created_at;
 
         return $this;
     }

@@ -26,7 +26,7 @@
 
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
-/public/build/
+# suuprimer /public/build/***************************************************************pour le prepartion a mettre en ligne */
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
